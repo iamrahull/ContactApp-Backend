@@ -20,8 +20,8 @@ const defaultData = {
     },
     {
       id: 'tyler',
-      name: 'Tyler Roy',
-      handle: '@roytyler',
+      name: 'James Roy',
+      handle: '@roy_james',
       avatarURL: config.origin + '/tyler.jpg'
     },
   ]
