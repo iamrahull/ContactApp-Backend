@@ -8,20 +8,20 @@ const defaultData = {
     {
       id: 'richard',
       
-      name: 'Richard Kalehoff',
-      handle: '@richardkalehoff',
+      name: 'Rahul Kumar',
+      handle: '@rahulk',
       avatarURL: config.origin + '/richard.jpg'
     },
     {
       id: 'karen',
-      name: 'Karen Isgrigg',
-      handle: '@karen_isgrigg',
+      name: 'Karen Singh',
+      handle: '@karen_singh',
       avatarURL: config.origin + '/karen.jpg'
     },
     {
       id: 'tyler',
-      name: 'Tyler McGinnis',
-      handle: '@tylermcginnis',
+      name: 'Tyler Roy',
+      handle: '@roytyler',
       avatarURL: config.origin + '/tyler.jpg'
     },
   ]
