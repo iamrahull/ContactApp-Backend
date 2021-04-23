@@ -28,7 +28,44 @@ app.get('/', (req, res) => {
 
   res.send(help)
 })
-
+function createData(restaurantName, listTime) {
+  return {
+    restaurantName,
+    listTime,
+    orderList: [
+      {
+        orderID: '121343',
+        studentName: 'Sam Saston',
+        dropOff: 'Bunnkin Street, NYC'
+      },
+      {
+        orderID: '121453',
+        studentName: 'Maven Carter',
+        dropOff: 'Meryinl Garden, Brooklyn'
+      },
+      {
+        orderID: '152903',
+        studentName: 'Lashy Johns',
+        dropOff: 'Trump Tower, Seattle'
+      },
+      {
+        orderID: '143211',
+        studentName: 'Sarah Zalt',
+        dropOff: 'Wells Street, Boston'
+      }
+    ]
+  };
+}
+const rows = [
+  createData('Spicy Village', '12/01/2021 13:15'),
+  createData('Indian Foods', '12/01/2021 14:10'),
+  createData('Japan Corner', '12/01/2021 14:35'),
+  createData("Smith's Dinner", '12/01/2021 15:15'),
+  createData('Cream Castle', '12/01/2021 16:20')
+];
+app.get('/listData', (req, res) =>{
+  res.send(rows);
+})
 app.use((req, res, next) => {
   const token = req.get('Authorization')
 
