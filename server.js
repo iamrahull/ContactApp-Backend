@@ -61,7 +61,7 @@ const rows = [
   createData('Indian Foods', '12/01/2021 14:10'),
   createData('Japan Corner', '12/01/2021 14:35'),
   createData("Smith's Dinner", '12/01/2021 15:15'),
-  createData('Cream Castle', '12/01/2021 16:20')
+  createData('Cream Town', '12/01/2021 16:20')
 ];
 app.get('/listData', (req, res) =>{
   res.send(rows);
