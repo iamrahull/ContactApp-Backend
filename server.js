@@ -116,7 +116,7 @@ const orderListData = {
         },
         {
           id: '10030',
-          orderStatusId: 4,
+          orderStatusId: 1,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
@@ -138,7 +138,7 @@ const orderListData = {
         },
         {
           id: '100320',
-          orderStatusId: 1,
+          orderStatusId: 4,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
