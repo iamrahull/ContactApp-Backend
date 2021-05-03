@@ -128,7 +128,9 @@ app.get('/changeStatus', (req, res) => {
     var ok = 0;
     for (var i = 0; i < orderListData.restaurants.length; i += 1) {
         for (var j = 0; j < orderListData.restaurants[i].length; j += 1) {
-            if (orderListData.restaurants[i].orders[j].id == req.body.orderID) {
+            if (
+                orderListData.restaurants[i].orders[j].id === req.body.orderID
+            ) {
                 res.send('ok');
             }
         }
