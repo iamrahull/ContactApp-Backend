@@ -88,7 +88,14 @@ const orderListData = {
         {
           id: '112320',
           orderStatusId: 1,
-          payoutStatusId: 1,
+          payoutStatusId: 2,
+          customerName: 'Ronn Amont',
+          chefLocation: '85 New Avenue, Seattle',
+        },
+        {
+          id: '154420',
+          orderStatusId: 4,
+          payoutStatusId: 2,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
         },
@@ -109,7 +116,7 @@ const orderListData = {
         },
         {
           id: '10030',
-          orderStatusId: 1,
+          orderStatusId: 4,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
@@ -124,7 +131,7 @@ const orderListData = {
       orders: [
         {
           id: '143020',
-          orderStatusId: 1,
+          orderStatusId: 4,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
@@ -132,6 +139,13 @@ const orderListData = {
         {
           id: '100320',
           orderStatusId: 1,
+          payoutStatusId: 1,
+          customerName: 'Ronn Amont',
+          chefLocation: '85 New Avenue, Seattle',
+        },
+        {
+          id: '10730',
+          orderStatusId: 4,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
