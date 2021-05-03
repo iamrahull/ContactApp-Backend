@@ -7,7 +7,8 @@ const contacts = require('./contacts');
 const app = express();
 
 app.use(express.static('public'));
-app.use(cors());
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
   const help = `
@@ -124,31 +125,35 @@ const orderListData = {
 app.get('/getAllOrderList', (req, res) => {
   res.send(orderListData);
 });
-app.get('/changeStatus', (req, res) => {
-  var ok = 0;
+
+app.post('/changeStatus', (req, res) => {
+  var ok = '';
+  ok += '*';
   for (let i = 0; i < orderListData.restaurants.length; i += 1) {
+    ok += '*';
     const sizeer = orderListData.restaurants[i].orders.length;
     for (let j = 0; j < sizeer; j += 1) {
-      if (orderListData.restaurants[i].orders[j].id === req.body.orderID) {
-        res.send('ok');
-      }
+      if (orderListData.restaurants[i].orders[j].id === req.body.id)
+        res.send(i + ' ' + j);
     }
   }
+  console.log(req.body.id);
   res.send('no');
 });
-app.use((req, res, next) => {
-  const token = req.get('Authorization');
 
-  if (token) {
-    req.token = token;
-    next();
-  } else {
-    res.status(403).send({
-      error:
-        'Please provide an Authorization header to identify yourself (can be whatever you want)',
-    });
-  }
-});
+// app.use((req, res, next) => {
+//   const token = req.get('Authorization');
+
+//   if (token) {
+//     req.token = token;
+//     next();
+//   } else {
+//     res.status(403).send({
+//       error:
+//         'Please provide an Authorization header to identify yourself (can be whatever you want)',
+//     });
+//   }
+// });
 
 app.get('/contacts', (req, res) => {
   res.send(contacts.get(req.token));
