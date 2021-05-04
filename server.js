@@ -161,7 +161,7 @@ app.post('/changeStatus', (req, res) => {
   for (let i = 0; i < res.body.list.length; i++) {
     if (checker(req.body.list[i].id)) return 'no!';
   }
-  return 'Yes!';
+  return 'Yes!!';
 });
 const checker = (id) => {
   for (let i = 0; i < orderListData.restaurants.length; i += 1) {
