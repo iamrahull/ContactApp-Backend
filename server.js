@@ -159,7 +159,7 @@ app.get('/getAllOrderList', (req, res) => {
 });
 app.post('/changeStatus', (req, res) => {
   for (let i = 0; i < res.body.list.length; i++) {
-    if (checker(req.body.list[i].id)) return 'no!';
+    if (checker(req.body.list[i])) return 'no!';
   }
   return 'Yes!!';
 });
@@ -168,7 +168,7 @@ const checker = (id) => {
     const sizeer = orderListData.restaurants[i].orders.length;
     for (let j = 0; j < sizeer; j += 1) {
       if (orderListData.restaurants[i].orders[j].id === id)
-        orderListData.restaurants[i].orders[j].id *= 2;
+        orderListData.restaurants[i].orders[j].orderStatusId *= 2;
       return false;
     }
   }
