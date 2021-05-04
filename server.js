@@ -109,14 +109,14 @@ const orderListData = {
       orders: [
         {
           id: '100020',
-          orderStatusId: 1,
+          orderStatusId: 2,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
         },
         {
           id: '10030',
-          orderStatusId: 1,
+          orderStatusId: 2,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
@@ -157,21 +157,23 @@ const orderListData = {
 app.get('/getAllOrderList', (req, res) => {
   res.send(orderListData);
 });
-
 app.post('/changeStatus', (req, res) => {
-  var ok = '';
-  ok += '*';
+  for (let i = 0; i < res.body.list.length; i++) {
+    if (checker(req.body.list[i].id)) return 'no!';
+  }
+  return 'Yes!';
+});
+const checker = (id) => {
   for (let i = 0; i < orderListData.restaurants.length; i += 1) {
-    ok += '*';
     const sizeer = orderListData.restaurants[i].orders.length;
     for (let j = 0; j < sizeer; j += 1) {
-      if (orderListData.restaurants[i].orders[j].id === req.body.id)
-        res.send(i + ' ' + j);
+      if (orderListData.restaurants[i].orders[j].id === id)
+        orderListData.restaurants[i].orders[j].id *= 2;
+      return false;
     }
   }
-  console.log(req.body.id);
-  res.send('no');
-});
+  return true;
+};
 
 // app.use((req, res, next) => {
 //   const token = req.get('Authorization');
