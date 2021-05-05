@@ -67,7 +67,7 @@ const rows = [
 app.get('/listData', (req, res) => {
   res.send(rows);
 });
-const orderListData = {
+var orderListData = {
   page: '0',
   pageSize: '10',
   totalRestaurantCount: 1,
@@ -80,14 +80,14 @@ const orderListData = {
       orders: [
         {
           id: '100020',
-          orderStatusId: 1,
+          orderStatusId: 2,
           payoutStatusId: 1,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
         },
         {
           id: '112320',
-          orderStatusId: 1,
+          orderStatusId: 2,
           payoutStatusId: 2,
           customerName: 'Ronn Amont',
           chefLocation: '85 New Avenue, Seattle',
@@ -158,18 +158,26 @@ app.get('/getAllOrderList', (req, res) => {
   res.send(orderListData);
 });
 app.post('/changeStatus', (req, res) => {
-  for (let i = 0; i < res.body.list.length; i++) {
-    if (checker(req.body.list[i])) return 'no!';
+  console.log(orderListData);
+  for (let i = 0; i < req.body.list.length; i++) {
+    if (checker(req.body.list[i])) res.send('failed');
+    console.log(i);
   }
-  return 'Yes!!';
+  console.log(req.body);
+  console.log(orderListData);
+  console.log(req.body.list);
+  console.log(req.body.list.length);
+  res.send(orderListData);
 });
 const checker = (id) => {
   for (let i = 0; i < orderListData.restaurants.length; i += 1) {
     const sizeer = orderListData.restaurants[i].orders.length;
     for (let j = 0; j < sizeer; j += 1) {
-      if (orderListData.restaurants[i].orders[j].id === id)
-        orderListData.restaurants[i].orders[j].orderStatusId *= 2;
-      return false;
+      if (orderListData.restaurants[i].orders[j].id === id) {
+        console.log('found ' + i + ' ' + j);
+        orderListData.restaurants[i].orders[j].orderStatusId = 0;
+        return false;
+      }
     }
   }
   return true;
