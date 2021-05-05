@@ -158,7 +158,7 @@ app.get('/getAllOrderList', (req, res) => {
   res.send(orderListData);
 });
 var tempCol;
-app.get('reqBodyData', (req, res) => {
+app.get('/reqBodyData', (req, res) => {
   res.send(tempCol);
 });
 app.post('/changeStatus', (req, res) => {
