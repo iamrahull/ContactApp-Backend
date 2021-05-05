@@ -157,16 +157,21 @@ var orderListData = {
 app.get('/getAllOrderList', (req, res) => {
   res.send(orderListData);
 });
+var tempCol;
+app.get('reqBodyData', (req, res) => {
+  res.send(tempCol);
+});
 app.post('/changeStatus', (req, res) => {
   console.log(orderListData);
-  for (let i = 0; i < req.body.list.length; i++) {
-    if (checker(req.body.list[i])) res.send('failed');
-    console.log(i);
-  }
+  // for (let i = 0; i < req.body.list.length; i++) {
+  //   if (checker(req.body.list[i])) res.send('failed');
+  //   console.log(i);
+  // }
   console.log(req.body);
-  console.log(orderListData);
-  console.log(req.body.list);
-  console.log(req.body.list.length);
+  tempCol = req.body;
+  // console.log(orderListData);
+  // console.log(req.body.list);
+  // console.log(req.body.list.length);
   res.send(orderListData);
 });
 const checker = (id) => {
